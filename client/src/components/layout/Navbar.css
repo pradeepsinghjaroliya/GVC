@@ -1,0 +1,161 @@
+.navbar {
+    background: white;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: fixed;
+    box-shadow: 0px 5px 10px #D1D1D1;
+  }
+  
+  .company-name{
+    font-family: 'Pacifico', cursive;
+  }
+  #company-logo{
+    color: turquoise;
+    font-size: 3rem;
+    padding-right: 5px;
+  }
+  .navbar-logo {
+    color: black;
+    justify-self: start;
+    margin-left: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    display: flex;
+  }
+  .nav-menu {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    width: 70vw;
+    justify-content: end;
+    margin-right: 2rem;
+  } 
+  .nav-item {
+    display: flex;
+    align-items: center;
+    height: 80px;
+  }
+  .nav-links {
+    color: black;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-family: 'Open Sans', sans-serif;
+    font-size:1.5rem;
+  }
+  .nav-links:hover {
+    color: aquamarine;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+  }
+  .nav-links-mobile {
+    display: none;
+  }
+  .menu-icon {
+    display: none;
+  }
+  .logout-btn{
+    color: black;
+    border: none;
+    background-color: transparent;
+    width: 80px;
+    height: 40px;
+    font-family: 'Open Sans', sans-serif;
+    font-size:1.5rem;
+  }
+  .logout-btn:hover {
+    color: white;
+  }
+  .nav-links-btn{
+    background-color: darkturquoise;
+    padding: 8px;
+    border-radius: 15px;
+  }
+  .sign-in-btn{
+    text-decoration: none;
+    color:black;
+    font-family: 'Open Sans', sans-serif;
+    font-size:1.5rem;
+  }
+  .sign-in-btn:hover{
+    color:white;
+  }
+  .nav-links-btn:hover {
+    background-color: darkcyan;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+  }
+  .nav-user{
+    color: maroon;
+    padding: 0.5rem 0rem 0.5rem 1rem;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+  }
+  
+  @media screen and (max-width: 960px) {
+    .NavbarItems {
+      position: relative;
+    }
+  
+    .nav-menu {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 90vh;
+      justify-content: space-evenly;
+      position: absolute;
+      top: 80px;
+      left: -100%;
+      opacity: 1;
+      transition: all 0.5s ease;
+    }
+  
+    .nav-menu.active {
+      background: #D1D1D1;
+      left: 0;
+      opacity: 1;
+      transition: all 0.5s ease;
+      z-index: 1;
+    }
+  
+    .nav-links, .nav-links-btn, .nav-user {
+      text-align: center;
+      padding: 2rem;
+      font-size: 2rem;
+      width: 100%;
+      display: table;
+    }
+    .nav-links-btn{
+      background-color: unset;
+    }
+  
+    .nav-links:hover {
+      background-color: aquamarine;
+      color: black;
+      border-radius: 0;
+      transform: scale(1.2);
+    }
+    
+    .navbar-logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(25%, 25%);
+    }
+  
+    .menu-icon {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(-100%, 60%);
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+  }

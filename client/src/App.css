@@ -1,0 +1,9 @@
+.main-box{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.main-cont{
+    padding-top: 10vh;
+    height: 100%;
+}
