@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+}
+.login-form{
+    /* padding-top: 16vmin; */
+
+    background-color: white;
+    margin-top: 16vmin;
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
+    box-shadow: 20px 30px 30px 2px;
+    
+}
+.register-form{
+    /* padding-top: 16vmin; */
+    background-color: white;
+    margin-top: 5vmin;
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
+    box-shadow: 20px 30px 30px 2px ;
+
+}
+.form-control:focus{
+    border-radius: inherit;
+    box-shadow: none;
+}
+nav{
+    background-color: #5584AC !important;
+    border-bottom: 1px solid black;
+}
+/* .login-btn:hover{
+    background-color: white;
+    border-color: 4px solid lightblue;
+    box-shadow: 1px 1px 3px;
+    text-shadow: black;
+} */
+/* .card{
+    border-top-left-radius: 52px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 52px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    box-shadow: 10px 30px 30px ;
+    padding-right: 5px;
+    padding-left: 5px;
+} */
+.card{
+    border: none;
+    /* background: none; */
+}
+.login-form .right-side{
+    /* padding-right:   10px; */
+    width: 350px;
+    margin-right: 40px;
+    padding-top: 15px !important;
+}
+.login-form .left-side{
+    box-shadow: 1px 2px 4px;
+}
+.home-right-side{
+    margin-top:10vmax;
+    /* margin-left: 23vw; */
+
+}
+.home-container{
+    /* height: 100vh; */
+    margin-top: 12vh;
+}
