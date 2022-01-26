@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    
+
+
     // Meeting Toggle button
     // $("#Join-Form-Toggle").hide();
     // $("#Create-Form-Toggle").hide();

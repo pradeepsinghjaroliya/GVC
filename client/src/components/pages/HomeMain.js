@@ -104,7 +104,7 @@ function HomeMain() {
                         className="btn btn-outline-primary btn-lg px-5"
                         style={{ width: "200px" }}
                         id="CreateBtn"
-						onClick={()=>setCreateToggle(!createToggle)}
+						onClick={()=>{setCreateToggle(!createToggle) ; setJoinToggle(false)}}
                       >
                         Create Call
                       </div>
@@ -112,7 +112,7 @@ function HomeMain() {
                         className="btn btn-outline-primary btn-lg px-5"
                         style={{ width: "200px" }}
                         id="JoinBtn"
-						onClick={()=>setJoinToggle(!joinToggle)}
+						onClick={()=>{setCreateToggle(false) ; setJoinToggle(!joinToggle)}}
                       >
                         Join Call
                       </div>

@@ -32,7 +32,14 @@
 }
 nav{
     background-color: #5584AC !important;
-    border-bottom: 1px solid black;
+    /* border: 1px solid #000000; */
+    /* box-shadow: 0px 1px 40px rgb(0, 0, 0); */
+}
+.navbar .btn-shadow{
+    box-shadow: 2px 2px 10px #000;
+}
+.bg-color{
+    background-color: #542BD8 !important;
 }
 /* .login-btn:hover{
     background-color: white;
@@ -72,4 +79,7 @@ nav{
 .home-container{
     /* height: 100vh; */
     margin-top: 12vh;
+}
+.home-container .card-text:hover{
+    font-size: 40px;
 }

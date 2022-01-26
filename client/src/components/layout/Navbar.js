@@ -29,7 +29,7 @@ function Navbar() {
 
       {userData.user ? (
         <>
-          <nav className="navbar navbar-dark text-white border-bottom bg-primary w-100 px-5 ">
+          <nav className="navbar navbar-dark  text-white bg-primary bg-color w-100 px-5 ">
             <a className="navbar-brand">Logo</a>
             <div className="d-flex">
               <div className="mx-5">
@@ -50,12 +50,12 @@ function Navbar() {
                   </Link>
                 </span>
               </div>
-              <div className="rounded-pill btn shadow-lg mx-4 bg-light disabled .bg-gradient text-secodanry ">
+              <div className="rounded-pill px-4 btn shadow-lg mx-4 bg-light disabled .bg-gradient text-secodanry ">
               {userData.user.displayName}
               </div>
               {/* <button class="mx-4 text-white shadow-lg btn bg-light.bg-gradient rounded-pill">User Name</button> */}
               <Link to="/" className="text-decoration-none text-white">
-                <button className="btn btn-outline-light px-4" type="submit" onClick={logout}>
+                <button className="btn btn-outline-light px-4 btn-shadow" type="submit" onClick={logout}>
                   Logout
                 </button>
               </Link>
@@ -86,7 +86,7 @@ function Navbar() {
                 </span>
               </div>
               <Link to="/" className="text-decoration-none text-white">
-                <button className="btn btn-primary px-4" type="submit">
+                <button className="btn btn-primary px-4 btn-shadow" type="submit">
                   Login
                 </button>
               </Link>
