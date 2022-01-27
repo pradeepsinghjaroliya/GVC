@@ -41,6 +41,21 @@ nav{
 .bg-color{
     background-color: #542BD8 !important;
 }
+.text-color{
+    color: #542BD8 !important;
+}
+#CreateBtn ,#JoinBtn{
+    border:1px solid #542BD8;
+    color: #542BD8;
+}
+#CreateBtn:hover{
+    background-color: #542BD8;
+    color: white;
+}
+#JoinBtn:hover{
+    background-color: #542BD8;
+    color: white;
+}
 /* .login-btn:hover{
     background-color: white;
     border-color: 4px solid lightblue;

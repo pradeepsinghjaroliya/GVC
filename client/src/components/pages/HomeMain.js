@@ -96,7 +96,7 @@ function HomeMain() {
                 </div>
                 <div className="col-lg-4 mx-auto home-right-side">
                   <div className="card bg-transparent">
-                    <div className="card-text display-3 text-primary mx-auto">
+                    <div className="card-text text-color display-3 mx-auto">
                       Meeting
                     </div>
                     <div className="text-center text-muted disabled pb-3">
@@ -159,7 +159,7 @@ function HomeMain() {
                         {/* submit button */}
                         <div className="text-center">
                           <button
-                            className="btn btn-primary btn-lg"
+                            className="btn bg-color text-white btn-lg"
                             type="submit"
                           >
                             Create
@@ -192,7 +192,7 @@ function HomeMain() {
                         {/* submit button */}
                         <div className="text-center">
                           <button
-                            className="btn btn-primary btn-lg"
+                            className="btn bg-color text-white btn-lg"
                             type="submit"
                           >
                             {" "}

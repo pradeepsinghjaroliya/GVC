@@ -55,7 +55,7 @@ function Navbar() {
               </div>
               {/* <button class="mx-4 text-white shadow-lg btn bg-light.bg-gradient rounded-pill">User Name</button> */}
               <Link to="/" className="text-decoration-none text-white">
-                <button className="btn btn-outline-light px-4 btn-shadow" type="submit" onClick={logout}>
+                <button className="btn btn-outline-light px-4 " type="submit" onClick={logout}>
                   Logout
                 </button>
               </Link>
