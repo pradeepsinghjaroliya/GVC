@@ -1,0 +1,22 @@
+.error-notice-cont{
+    background-color: whitesmoke;
+    border: double indianred;
+    margin: 15px;
+    padding: 5px;
+    display: flex;
+}
+.error-notice-msg{
+    font-family: inherit;
+    font-weight: 500;
+    flex:1;
+}
+.error-notice-btn{
+    background-color: indianred;
+    color: white;
+    align-self: center;
+}
+.error-notice-btn:hover{
+    transform: scale(1.2);
+    background-color: white;
+    color: red;
+}

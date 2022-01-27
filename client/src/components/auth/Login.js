@@ -42,14 +42,14 @@ function Login() {
       <div className="container-fluid">
         <div className="container">
           <div className="row justify-content-center login-form">
-            <div className="col-lg-6  mx-auto">
+            <div className="col-lg-6 mx-auto">
               <img
                 src="./img/secure-login.gif"
                 className="img-fluid mx-auto"
                 alt="login-video-gif"
               />
             </div>
-            <div className="col-lg-4  mx-auto py-5">
+            <div className="col-lg-4 mx-auto py-5">
               <div className="card right-side ">
                 <div className="card-title text-center ">
                   <img

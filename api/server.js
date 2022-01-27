@@ -100,18 +100,18 @@ app.post('/meet/create',async(req,res) => {
     if(!channelname || !pass || !email)
       {
         console.log("not all feild entered");
-        return res.status(400).json({ msg: "Not all fields have been entered." });
+        return res.status(400).json({ msg: "Not all fields have been entered!!!" });
     }
     if(channelname.length < 3 || pass.length <3 )
       {
         console.log("atleast 3 characters long required")
-        return res.status(400).json({msg: "The channel name and password must be atleast 3 characters long!!"});
+        return res.status(400).json({msg: "The channel name and password must be atleast 3 characters long!!!"});
       }
     const existingMeet = await Meet.findOne({channelname:channelname, pass:pass});
     if(existingMeet)
       {
         console.log("Meet already exists");
-        return res.status(400).json({msg: "Meet already exists."});
+        return res.status(400).json({msg: "Meeting already exists!!! Try joining using join meet button."});
       }
     
       let channel = channelname + pass;
@@ -146,12 +146,12 @@ app.post('/meet/join/',async(req,res) =>{
   try{
     const {channelname, pass } =req.body;
     if(!channelname || !pass){
-      return res.status(400).json({ msg: "Not all fields have been entered." });
+      return res.status(400).json({ msg: "Not all fields have been entered!!!" });
     }
     const meet = await Meet.findOne({channelName: channelname, pass: pass});
     console.log(meet.token);
     if(!meet){
-      return res.status(400).json({msg:"No active meeting found"});
+      return res.status(400).json({msg:"No active meeting found!!!"});
     }
     
     //*********no need to generate token again, instead fetching from db */

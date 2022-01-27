@@ -30,7 +30,7 @@ function Navbar() {
       {userData.user ? (
         <>
           <nav className="navbar navbar-dark  text-white bg-primary bg-color w-100 px-5 ">
-            <a className="navbar-brand">Logo</a>
+            <a className="navbar-brand">GVC</a>
             <div className="d-flex">
               <div className="mx-5">
                 <span className="nav-item  btn ">
@@ -65,7 +65,7 @@ function Navbar() {
       ) : (
         <>
           <nav className="navbar navbar-light border-bottom bg-light w-100 px-5">
-            <a className="navbar-brand">Logo</a>
+            <a className="navbar-brand">GVC</a>
             <div className="d-flex">
               <div className="mx-5">
                 <span className="nav-item btn ">

@@ -65,7 +65,7 @@ function Register() {
                       src="./img/register1.gif"
                       className="img-fluid "
                       style={{ height: 150 }}
-                      alt
+                      alt=""
                     />
                     <h2 className="text-primary">Register</h2>
                   </div>

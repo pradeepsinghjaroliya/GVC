@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../../context/userContext";
 import Navbar from "../layout/Navbar";
+import ErrorNotice from"../../components/misc/ErrorNotice"
 import { Button } from "@material-ui/core";
 // import "./HomeMain.css";
 
@@ -15,6 +16,7 @@ function HomeMain() {
   const [pass, setPass] = useState("");
   const [expiry, setExpiry] = useState("");
   const [token,setToken] = useState("");
+  const [error, setError] = useState();
 
   const { userData, setUserData } = useContext(UserContext);
   const email = userData.email;
@@ -37,11 +39,13 @@ function HomeMain() {
       )
       console.log(meetResponse.data.token);
       setToken(meetResponse.data.token);
+      
+    setInCall(true);
     } catch (err) {
       console.log(err);
+      err.response.data.msg && setError(err.response.data.msg);
     }
 
-    setInCall(true);
   };
 
   const handleCreate = async(e) => {
@@ -61,12 +65,14 @@ function HomeMain() {
       })
       console.log(meetResponse.data.token);
       setToken(meetResponse.data.token);
+
+      //room created & token generated
+      setInCall(true);
     } catch (err) {
       console.log(err);
+      err.response.data.msg && setError(err.response.data.msg);
     }
 
-    //room created & token generated
-    setInCall(true);
   };
 
 	//   show hide toggle
@@ -94,8 +100,8 @@ function HomeMain() {
                       Meeting
                     </div>
                     <div className="text-center text-muted disabled pb-3">
-                      You can either create meet using click on create button or
-                      join can join meet using join button
+                      You can either create meet using create button or
+                      join meet by clicking on join button
                     </div>
                     <hr className="text-primary border-2" />
 					 {/* craete and join btn */}
@@ -117,6 +123,8 @@ function HomeMain() {
                         Join Call
                       </div>
                     </div>	
+                    {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
+
                     {/* create join form */}
                     <div id="form-create-join">
                       {/* create form */}
