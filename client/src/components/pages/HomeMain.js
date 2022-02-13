@@ -16,6 +16,7 @@ function HomeMain() {
   const [pass, setPass] = useState("");
   const [expiry, setExpiry] = useState("");
   const [token,setToken] = useState("");
+  const [mtoken,setmToken] = useState("");
   const [error, setError] = useState();
 
   const { userData, setUserData } = useContext(UserContext);
@@ -39,6 +40,15 @@ function HomeMain() {
       )
       console.log(meetResponse.data.token);
       setToken(meetResponse.data.token);
+
+      const mt = await axios.get(`http://localhost:5000/access_mtoken?id=${userData.user.displayName}`)
+                .then((res)=>{
+                  return res.data.mtoken;
+                }
+                );
+                console.log(mtoken);
+                setmToken(mt);
+
       
     setInCall(true);
     } catch (err) {
@@ -66,6 +76,15 @@ function HomeMain() {
       console.log(meetResponse.data.token);
       setToken(meetResponse.data.token);
 
+      const mt = await axios.get(`http://localhost:5000/access_mtoken?id=${userData.user.displayName}`)
+                .then((res)=>{
+                  return res.data.mtoken;
+                }
+                );
+      console.log(mtoken);
+      setmToken(mt);
+      
+
       //room created & token generated
       setInCall(true);
     } catch (err) {
@@ -87,7 +106,7 @@ function HomeMain() {
         {/* main-window */}
         <Context.Provider value={[inCall, setInCall]}>
           {inCall ? (
-            <VideoCall username={name} channelname={channelname} pass={pass} token={token}/>
+            <VideoCall username={name} channelname={channelname} pass={pass} token={token} mtoken={mtoken}/>
           ) : (
             <div className="container home-container">
               <div className="row">

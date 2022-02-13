@@ -47,6 +47,39 @@ const nocache = (req,res,next) =>{
   next();
 }
 
+const generatemToken = (req,res) =>{
+  //res header
+  res.header('Acess-Control-Allow-Origin','*');
+  //get channel name
+  const id = req.query.id;
+  if(!id){
+    return res.status(500).json({'error':'id is required'});
+  }
+  //get uid
+  let uid=req.query.uid;
+  if(!uid || uid==''){
+    uid=0;
+  }
+  //get role
+  let role = RtmRole.Rtm_User;
+  //get expire time
+  let expireTime = req.query.expireTime;
+  if(!expireTime || expireTime == ''){
+    expireTime = 3600;
+  } else {
+    expireTime = parseInt(expireTime,10);
+  }
+  //calculate privilege expire time
+  const currentTime = Math.floor(Date.now() /1000);
+  const privilegeExpireTime = currentTime + expireTime;
+  //build token
+  const token = RtmTokenBuilder.buildToken(APP_ID,APP_CERTIFICATE,id,role,privilegeExpireTime);
+  console.log("RTM token:",token);
+
+  //return token
+  return res.json({'mtoken':token});
+}
+
 const generateAccessToken = (req,res) =>{
   //res header
   res.header('Acess-Control-Allow-Origin','*');
@@ -87,6 +120,7 @@ const generateAccessToken = (req,res) =>{
 
 
 app.get('/access_token',nocache,generateAccessToken);
+app.get('/access_mtoken',nocache,generatemToken);
 //api routes            
 app.use("/users", Users);
 //app.use("/todos", Todo);
@@ -116,7 +150,7 @@ app.post('/meet/create',async(req,res) => {
     
       let channel = channelname + pass;
       console.log(channel);
-    const token = await axios
+      const token = await axios
       .get(`http://localhost:5000/access_token?channelName=${channel}`)
       .then((res) => {
         //setToken(res.data.token);
@@ -125,6 +159,7 @@ app.post('/meet/create',async(req,res) => {
         return res.data.token;
       })
       .catch((err)=>console.log(err));
+
 
     const newMeet = new Meet({
       channelname,pass,expiry,name,email,token:token,
@@ -149,7 +184,7 @@ app.post('/meet/join/',async(req,res) =>{
       return res.status(400).json({ msg: "Not all fields have been entered!!!" });
     }
     const meet = await Meet.findOne({channelName: channelname, pass: pass});
-    console.log(meet.token);
+    //console.log(meet.token);
     if(!meet){
       return res.status(400).json({msg:"No active meeting found!!!"});
     }

@@ -6,6 +6,7 @@ import VideocamIcon from "@material-ui/icons/Videocam";
 import VideocamOffIcon from "@material-ui/icons/VideocamOff";
 import MicOffIcon from "@material-ui/icons/MicOff";
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import "./Video.css";
 
 export default function Video(props) {
   //taking props
@@ -51,8 +52,9 @@ export default function Video(props) {
                 <div style={{height: "100%",width: "100%",position: "relative"}}>
                     <AgoraVideoPlayer
                     videoTrack={user.videoTrack}
+                    id="videoTracks"
                     key={user.uid}
-                    style={{ height: "100%", width: "100%" }}
+                    style={{ height: "100%", width: "100%"}}
                     >
                     <p style={{ position: "absolute",color: "lightgrey",zIndex:"1" }}>{user.uid}{(user.videoTrack) ? <VideocamIcon /> : <VideocamOffIcon />} {user.audioTrack ? <MoreHorizIcon /> : <MicOffIcon />}</p>
                     </AgoraVideoPlayer>

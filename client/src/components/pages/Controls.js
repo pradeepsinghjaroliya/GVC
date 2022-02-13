@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { Context } from "../../context/Context.js";
-import { useClient } from "./Settings";
+import { useClient,mclient } from "./Settings";
 import { Grid, Button } from "@material-ui/core";
 import MicIcon from "@material-ui/icons/Mic";
 import MicOffIcon from "@material-ui/icons/MicOff";
@@ -31,6 +31,14 @@ export default function Controls(props) {
 
   const leaveChannel = async () => {
     await client.leave();
+    await mclient
+					.logout()
+					.then(() => {
+						console.log("Client logged out.");
+					})
+					.catch(() => {
+						console.log("log out failed");
+					});
     client.removeAllListeners();
     tracks[0].close();
     tracks[1].close();
@@ -39,7 +47,7 @@ export default function Controls(props) {
   };
 
   return (
-    <Grid container spacing={1} alignItems="center" style={{ width: "100%" }}>
+    <Grid container spacing={1} alignItems="center" style={{ width: "100%",margin:"0px" }}>
       <Grid item>
         <Button
           variant="contained"

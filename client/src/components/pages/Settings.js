@@ -1,8 +1,9 @@
 import {createMicrophoneAndCameraTracks } from "agora-rtc-react";
 import { createClient } from "agora-rtc-react";
+//import AgoraRTC from "agora-rtc-sdk-ng";
+import AgoraRTM from 'agora-rtm-sdk';
 
-
-const appId = "acd56b28c24642e0b303cb5d5fbdd6dd"
+const appId = 'acd56b28c24642e0b303cb5d5fbdd6dd';
 //const tik ="006acd56b28c24642e0b303cb5d5fbdd6ddIADHuvPVbkRrIUnRPaY6Fypkmlp39N5xpj6zjY34khk4g8qFUwsAAAAAEABLPQ3JrPjtYQEAAQC7+O1h"
 //var tk="";
 // export function Settings(props){
@@ -19,4 +20,6 @@ const appId = "acd56b28c24642e0b303cb5d5fbdd6dd"
 
 export const config = {mode: "rtc", codec: "vp8", appId: appId};
 export const useClient = createClient(config);
+export const usessClient = createClient(config);
+export const mclient = AgoraRTM.createInstance(appId);
 export const useMicrophoneAndCameraTracks = createMicrophoneAndCameraTracks();
