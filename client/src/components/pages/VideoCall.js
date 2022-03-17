@@ -249,11 +249,23 @@ export default function VideoCall(props) {
                     style={{ margin: "0px", padding: "0px" }}
                   >
                     {console.log(data)}
-                    <h6
-                      style={{ margin: "0px", padding: "0px" }}
-                    >{`${data.user.name} :`}</h6>
+
+                    {data.user.name == "You" ?
+                      <div
+                      className=""
+                      style={{ margin: "0px", padding: "0px",color:"#33363b"}}
+                    >
+                      {`${data.user.name} :`}
+                    </div>:<div
+                      className="text-dark h6"
+                      style={{ margin: "0px", padding: "0px"}}
+                    >
+                      {`${data.user.name} :`}
+                    </div>}
+                      
+                  
                     <p
-                      className="text-muted "
+                      className="text-secondary  px-1 pb-2 "
                       style={{ margin: "0px", padding: "0px" }}
                     >{` ${data.message}`}</p>
                   </div>
@@ -299,9 +311,9 @@ export default function VideoCall(props) {
           </div>
           <div className="col-lg-3">
             {/* sharing and recording btn */}
-            <div className="d-flex  my-3 justify-content-center">
+            <div className="d-flex  my-3 justify-content-around mx-5 px-5">
               <button
-                className="btn btn-outline-secondary shadow-none px-2 mx-5"
+                className="btn btn-outline-secondary shadow-none px-2 "
                 type="button"
                 id="screen_share"
                 onClick={screenshare}
@@ -309,7 +321,7 @@ export default function VideoCall(props) {
                 {sshare ? <StopScreenShareIcon /> : <ScreenShareIcon />}
               </button>
               <button
-                className="btn btn-outline-secondary shadow-none px-2 mx-2"
+                className="btn btn-outline-secondary shadow-none px-2 "
                 type="button"
                 id="start_recording"
                 //onClick={}
@@ -317,7 +329,7 @@ export default function VideoCall(props) {
                 <RecordVoiceOverIcon />
               </button>
               <button
-                className="btn btn-outline-secondary shadow-none px-2 mx-2"
+                className="btn btn-outline-secondary shadow-none px-2"
                 type="button"
                 id="share_link"
                 onClick={togglePopup}
