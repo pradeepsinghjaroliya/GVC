@@ -12,8 +12,10 @@ import SendIcon from "@material-ui/icons/Send"
 import ScreenShareIcon from "@material-ui/icons/ScreenShare"
 import StopScreenShareIcon from "@material-ui/icons/StopScreenShare"
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver"
+import ShareIcon from '@material-ui/icons/Share';
 import Video from "./Video"
 import Controls from "./Controls"
+import Sharelink from "./Sharelink"
 import { Context } from "../../context/Context.js"
 import axios from "axios"
 import AgoraRTC from "agora-rtc-sdk-ng"
@@ -36,6 +38,7 @@ export default function VideoCall(props) {
   const [currentmsg, setCurrentmsg] = useState()
   const [msg, setMsg] = useState([])
   const [trackState, setTrackState] = useState({ video: true, audio: true })
+  const [shareLink,setShareLink]=useState(false)
   const [sshare, setSshare] = useState(false)
   let options = {
     uid: username,
@@ -105,6 +108,10 @@ export default function VideoCall(props) {
       await ss_client.leave()
       setSshare(false)
     }
+  }
+
+  const togglePopup = () => {
+    setShareLink(!shareLink);
   }
 
   useEffect(() => {
@@ -309,9 +316,25 @@ export default function VideoCall(props) {
               >
                 <RecordVoiceOverIcon />
               </button>
+              <button
+                className="btn btn-outline-secondary shadow-none px-2 mx-2"
+                type="button"
+                id="share_link"
+                onClick={togglePopup}
+              >
+                <ShareIcon />
+              </button>
             </div>
             {/* sharing and recording btn */}
           </div>
+          {shareLink && <Sharelink
+      content={<>
+        <b>Design your Popup</b>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <button>Test button</button>
+      </>}
+      handleClose={togglePopup}
+    />}
         </div>
         {/* controls */}
       </div>
