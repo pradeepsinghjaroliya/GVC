@@ -34,10 +34,10 @@ function HomeMain() {
     }
     //joining room
     try {
-      const joinRoom = { channelname, pass }
-      const meetResponse = await axios.post(
-        "http://localhost:5000/meet/join",
-        joinRoom
+      const joinRoom = { channelname:channelname, pass:pass }
+      const meetResponse = await axios.get(
+        'http://localhost:5000/meet/join',
+        {params:{ channelname:channelname, pass:pass }}
       )
       console.log(meetResponse.data.token)
       setToken(meetResponse.data.token)
@@ -74,10 +74,10 @@ function HomeMain() {
         email: userData.email,
       }
       await axios.post("http://localhost:5000/meet/create", createRoom)
-      const meetResponse = await axios.post("http://localhost:5000/meet/join", {
-        channelname,
-        pass,
-      })
+      const meetResponse = await axios.get(
+        'http://localhost:5000/meet/join',
+        {params:{ channelname:channelname, pass:pass }}
+      )
       console.log(meetResponse.data.token)
       setToken(meetResponse.data.token)
 
@@ -197,7 +197,7 @@ function HomeMain() {
                             className="form-control my-2"
                             onChange={(e) => setExpiry(e.target.value)}
                             value={expiry}
-                            placeholder="Expire Time hh/mm/ss"
+                            placeholder="Expire Time (in minutes)"
                             required
                           />
                           {/* submit button */}

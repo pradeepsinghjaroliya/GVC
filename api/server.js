@@ -177,9 +177,10 @@ app.post('/meet/create',async(req,res) => {
 });
 //*********************connecting a meet*********
 
-app.post('/meet/join/',async(req,res) =>{
+app.get('/meet/join',async(req,res) =>{
   try{
-    const {channelname, pass } =req.body;
+    console.log(req.query);
+    const {channelname, pass } =req.query;
     if(!channelname || !pass){
       return res.status(400).json({ msg: "Not all fields have been entered!!!" });
     }

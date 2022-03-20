@@ -79,9 +79,9 @@ export default function VideoCall(props) {
     if (!sshare) {
       const ss_uid = username + "_screen"
       const joinRoom = { channelname, pass }
-      const Response = await axios.post(
-        "http://localhost:5000/meet/join",
-        joinRoom
+      const Response = await axios.get(
+        'http://localhost:5000/meet/join',
+        {params:{ channelname:channelname, pass:pass }}
       )
       console.log(Response.data.token)
       const ss_token = Response.data.token
@@ -341,9 +341,14 @@ export default function VideoCall(props) {
           </div>
           {shareLink && <Sharelink
       content={<>
-        <b>Design your Popup</b>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <button>Test button</button>
+        <h3><b>Meeting Info</b></h3>
+        <h4>Share this meeting info with others you want into the meeting</h4>
+        <p>channelName: {channelname}</p>
+        <p>pass: {pass}</p>
+        <button>Copy the Message</button>
+        <h4>Or share this link</h4>
+        <p>http://localhost:3000//meet/join?channelname={channelname}&pass={pass}</p>
+        <button>Copy the URL</button>
       </>}
       handleClose={togglePopup}
     />}
